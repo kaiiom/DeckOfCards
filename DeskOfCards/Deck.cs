@@ -50,7 +50,7 @@ namespace DeskOfCards
                 }
 
                 //hearts
-                if (i == 1)
+                if (i == 2)
                 {
                     for (int j = 0; j <= 12; j++)
                     {
@@ -60,7 +60,7 @@ namespace DeskOfCards
                 }
 
                 //spades
-                if (i == 1)
+                if (i == 3)
                 {
                     for (int j = 0; j <= 12; j++)
                     {
