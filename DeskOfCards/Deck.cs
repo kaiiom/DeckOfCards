@@ -20,69 +20,69 @@ namespace DeskOfCards
         //constructors
         public Deck()
         {
-            for (int i = 0; i <= count - 1; i++)
+            for (int i = 0; i < cards.Length; i++)
             {
                 cards[i] = card;
             }
 
             //initialize the cards here
-            //clubs 0-12
-            //diamonds 13-25
-            //hearts 26-38
-            //spades 39-51
+            //clubs 0 - 12
+            //diamonds 13 - 25
+            //hearts 26 - 38
+            //spades 39 - 51
 
             //initialising numbers
             //1 = A, 11 = J, 12 = K, 13 = Q
-            for (int i = 0; i <= 3; i++)
+
+            //clubs
+            for (int j = 0; j <= 12; j++)
             {
-                //clubs
-                if (i == 0)
-                {
-                    for (int j = 0; j <= 12; j++)
-                    {
-                        cards[j].face = j + 1;
-                        cards[j].suit = "club";
-                    }
-                }
+                Card newCard = new Card();
+                newCard.face = j + 1;
+                newCard.suit = "clubs";
 
-                //diamonds
-                if (i == 1)
-                {
-                    for (int j = 0; j <= 12; j++)
-                    {
-                        cards[j].face = j + 1;
-                        cards[j].suit = "diamond";
-                    }
-                }
+                cards[j] = AddCard(newCard);
+            }
 
-                //hearts
-                if (i == 2)
-                {
-                    for (int j = 0; j <= 12; j++)
-                    {
-                        cards[j].face = j + 1;
-                        cards[j].suit = "heart";
-                    }
-                }
+            //diamonds
+            for (int j = 13; j <= 25; j++)
+            {
+                Card newCard = new Card();
+                newCard.face = j - 12;
+                newCard.suit = "diamonds";
 
-                //spades
-                if (i == 3)
-                {
-                    for (int j = 0; j <= 12; j++)
-                    {
-                        cards[j].face = j + 1;
-                        cards[j].suit = "spade";
-                    }
-                }
+                cards[j] = AddCard(newCard);
+            }
+
+            //hearts
+            for (int j = 26; j <= 38; j++)
+            {
+                Card newCard = new Card();
+                newCard.face = j - 25;
+                newCard.suit = "hearts";
+
+                cards[j] = AddCard(newCard);
+            }
+
+            //spades
+            for (int j = 39; j <= 51; j++)
+            {
+                Card newCard = new Card();
+                newCard.face = j - 38;
+                newCard.suit = "spades";
+
+                cards[j] = AddCard(newCard);
             }
         }
 
         //methods
-        public static void AddCard(Card card)
+        public static Card AddCard(Card card)
         {
-            //add a card to the deck
+            Card newCard = new Card();
+            newCard = card;
+            return newCard;
         }
-
+        
         public static void Shuffle()
         {
             //shuffle the deck
