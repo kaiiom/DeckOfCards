@@ -7,6 +7,7 @@ namespace DeskOfCards
     {
         //fields of the card
         public const int count = 52;
+        private Card card = new Card();
         private Card[] cards = new Card[count];
 
         //properties, public facing side
@@ -19,6 +20,11 @@ namespace DeskOfCards
         //constructors
         public Deck()
         {
+            for (int i = 0; i <= count - 1; i++)
+            {
+                cards[i] = card;
+            }
+
             //initialize the cards here
             //clubs 0-12
             //diamonds 13-25
