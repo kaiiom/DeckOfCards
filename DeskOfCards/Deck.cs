@@ -7,11 +7,12 @@ namespace DeskOfCards
     {
         //fields of the card
         public const int count = 52;
-        private Card card = new Card();
-        private Card[] cards = new Card[count];
+        public Card card = new Card();
+        //private Card[] cards = new Card[count];
+        public LinkedList<Card> cards = new LinkedList<Card>();
 
         //properties, public facing side
-        public Card[] Cards
+        public LinkedList<Card> Cards
         {
             get { return cards; }
             set { this.cards = value; }
@@ -20,10 +21,11 @@ namespace DeskOfCards
         //constructors
         public Deck()
         {
-            for (int i = 0; i < cards.Length; i++)
-            {
-                cards[i] = card;
-            }
+            //for (int i = 0; i < count; i++)
+            //{
+            //    cards.AddLast(card);
+            //    //cards[i] = card;
+            //}
 
             //initialize the cards here
             //clubs 0 - 12
@@ -41,7 +43,7 @@ namespace DeskOfCards
                 newCard.face = j + 1;
                 newCard.suit = "clubs";
 
-                cards[j] = AddCard(newCard);
+                //cards[j] = AddCard(newCard);
             }
 
             //diamonds
@@ -51,7 +53,8 @@ namespace DeskOfCards
                 newCard.face = j - 12;
                 newCard.suit = "diamonds";
 
-                cards[j] = AddCard(newCard);
+                //cards[j] = AddCard(newCard);
+                cards.AddLast(AddCard(newCard));
             }
 
             //hearts
@@ -61,7 +64,8 @@ namespace DeskOfCards
                 newCard.face = j - 25;
                 newCard.suit = "hearts";
 
-                cards[j] = AddCard(newCard);
+                //cards[j] = AddCard(newCard);
+                cards.AddLast(AddCard(newCard));
             }
 
             //spades
@@ -71,7 +75,8 @@ namespace DeskOfCards
                 newCard.face = j - 38;
                 newCard.suit = "spades";
 
-                cards[j] = AddCard(newCard);
+                //cards[j] = AddCard(newCard);
+                cards.AddLast(AddCard(newCard));
             }
         }
 
@@ -83,9 +88,9 @@ namespace DeskOfCards
             return newCard;
         }
         
-        public static void Shuffle()
+        public static void Shuffle(Card[] cards)
         {
-            //shuffle the deck
+            
         }
 
         public static void Cut()

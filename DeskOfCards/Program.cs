@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DeskOfCards
 {
@@ -49,8 +50,10 @@ namespace DeskOfCards
             int cardNum = ((int.Parse(Console.ReadLine()) - 1));
 
             //convert face to string if needs be
-            string face = cardDeck.Cards[cardNum].face.ToString();
-            string suit = cardDeck.Cards[cardNum].suit;
+            string face = cardDeck.Cards.ElementAt(cardNum).face.ToString();
+            string suit = cardDeck.Cards.ElementAt(cardNum).suit;
+            //string face = cardDeck.Cards[cardNum].face.ToString();
+            //string suit = cardDeck.Cards[cardNum].suit;
 
             switch (face)
             {
@@ -68,10 +71,9 @@ namespace DeskOfCards
                     break;
             }
 
-            Console.WriteLine();
             Console.WriteLine("{0} of {1}", face, suit);
             Console.ReadKey();
-            
+
         }
 
     }
